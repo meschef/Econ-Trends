@@ -1,0 +1,49 @@
+# load required packages
+library(data.table)
+library(dplyr)
+library(fredr)
+library(ggplot2)
+library(tidyverse)
+
+# set FRED API key
+API = Sys.getenv("API_key")
+fredr_set_key(API)
+
+
+
+UNEMPLOY<-fredr(series_id = "UNEMPLOY", observation_start = as.Date("2001-01-01"))
+JTSJOL<-fredr(series_id = "JTSJOL", observation_start = as.Date("2001-01-01"))
+
+UNEMPLOY<-UNEMPLOY[,c(1,3)]
+JTSJOL<-JTSJOL[,c(1,3)]
+
+unemployed_opening<-merge(UNEMPLOY, JTSJOL, by ="date")
+colnames(unemployed_opening)<- c("date", "Unemployed Workers", "Job Openings")
+
+df <- unemployed_opening %>%
+  gather(key = "variable", value = "value", -date)
+
+  
+openings_and_unemployed<-
+  ggplot(df, aes(x = date, y = value)) + 
+  labs(x = "Date", y="Thousands of People", title = "Figure 1: Job Openings and Unemployed Workers",  
+       caption= "Job Openings data from JOLTS, Unemployed Workers from BLS, \n all data retrieved from FRED. (https://fred.stlouisfed.org/)") +
+  geom_rect(xmin=as.Date("2007-12-01"), xmax=as.Date("2009-06-01"), ymin=0, ymax=Inf, fill="#cecece", alpha=0.2) +
+  geom_rect(xmin=as.Date("2020-02-01"), xmax=as.Date("2020-04-01"), ymin=0, ymax=Inf, fill="#cecece", alpha=0.2) +
+  geom_rect(xmin=as.Date("2001-03-01"), xmax=as.Date("2001-11-01"), ymin=0, ymax=Inf, fill="#cecece", alpha=0.2) +
+  geom_line(aes(color = variable), size=1) +
+  scale_color_manual(values = c( "#003366", "#B22234")) +
+  theme_bw() +
+  theme(text = element_text(size = 15), legend.position = c(.25, .9) ,legend.title=element_blank(),legend.background=element_rect(fill = alpha("white", 0))) 
+openings_and_unemployed
+
+ggsave("openings_unemployed_st.png",
+       plot = openings_and_unemployed,
+       device = "png",
+       width = 12,
+       height = 10,
+       units= "in")
+
+
+
+
