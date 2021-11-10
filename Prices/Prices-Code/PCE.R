@@ -49,19 +49,22 @@ all_PCE
 saveWidget(all_PCE, "pce_dy.html")
 
 #Static PCE graph
-start_date = which(dt$date == '2012-01-01')
+start_date = which(dt$date == '1990-01-01')
 staticdt <- dt[start_date:381, ] %>%
   select(date, `Chain-type Price Index`, `Excluding Food and Energy`, `Trimmed Mean`) %>%
   gather(key = "variable", value = "value", -date)
 
 PCE_static_graph= ggplot(staticdt, aes(x = date, y = value))+
+  geom_rect(xmin=as.Date("1990-07-01"), xmax=as.Date("1991-03-01"), ymin=-5, ymax=Inf, fill="#cecece", alpha=0.01)+
+  geom_rect(xmin=as.Date("2001-03-01"), xmax=as.Date("2001-11-01"), ymin=-5, ymax=Inf, fill="#cecece", alpha=0.01)+
+  geom_rect(xmin=as.Date("2007-12-01"), xmax=as.Date("2009-06-01"), ymin=-5, ymax=Inf, fill="#cecece", alpha=0.01)+
   geom_rect(xmin=as.Date("2020-02-01"), xmax=as.Date("2020-04-01"), ymin=-5, ymax=Inf, fill="#cecece", alpha=0.01)+
-  geom_path(aes(color = variable), size = 1.5)+
-  ylim(0,5)+
+  geom_path(aes(color = variable), size = .8)+
+  ylim(-1.5,5)+
   theme_bw()+
-  xlab("Date")+
-  ylab("Percent Change from a Year Ago")+
-  theme(legend.position = c(.3,.87),legend.text = element_text(size=12), legend.title=element_blank(),legend.background=element_rect(fill = alpha("white", 0)))+
+  labs(x ="Date", y = "Percent Change from a Year Ago", title = "Personal Consumption Expenditure Inflation",
+       caption = "Price index data from U.S. Bureau of Economic Analysis.\nTrimmed mean data from Federal Reserve Bank of Dallas.\n All data retrieved from FRED (https://fred.stlouisfed.org/)")+
+  theme(legend.position = c(.2,.87),legend.text = element_text(size=12), legend.title=element_blank(),legend.background=element_rect(fill = alpha("white", 0)))+
   scale_color_manual(values=c("#B22234", "#003366", "#398F1D"))
   
 
@@ -69,7 +72,7 @@ PCE_static_graph
 ggsave("PCE_static_graph.png",
          plot = PCE_static_graph,
          device = "png",
-         width = 10,
+         width = 12,
          height = 10,
          units= "in")
 
