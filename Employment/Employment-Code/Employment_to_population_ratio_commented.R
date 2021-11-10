@@ -37,7 +37,7 @@ graphThree<-dygraph(emp_p, xlab = "Date", ylab = "Employment to Population Ratio
 graphThree
 
 # Save as an html widget.
-saveWidget(graphThree, "dygraphs Employment to Population.html")
+saveWidget(graphThree, "employment-to-population.html")
 
 # Filter data to tidy # filter data to comply with "tidy" standards as ggplot is a tidyverse package -- (https://r4ds.had.co.nz/tidy-data.html).
 df <- emptopop %>%

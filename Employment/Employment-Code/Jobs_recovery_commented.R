@@ -50,7 +50,7 @@ graphFour<-dygraph(q, xlab = "Date", ylab = "Percent Change <br> from February 2
 graphFour
 
 # Save as an html widget.
-saveWidget(graphFour, "dygraph Jobs Recovery.html")
+saveWidget(graphFour, "jobs-recovery.html")
 
 # Filter data to tidy # filter data to comply with "tidy" standards as ggplot is a tidyverse package -- (https://r4ds.had.co.nz/tidy-data.html).
 staticdf <- q %>%

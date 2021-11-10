@@ -7,6 +7,7 @@ library(purrr)
 library(tidyr)
 library(widgetframe)
 library(xts)
+library(ggplot2)
 
 # set FRED API key
 API = Sys.getenv("API_key")
@@ -37,6 +38,7 @@ dt<-list( PCEPI_change, PCEPILFE_change, trimmed_mean_change) %>% reduce(left_jo
 
 all_PCE<-dygraph(dt, xlab= "Date", ylab = "Percent Change from Year Ago") %>%
   dyOptions(strokeWidth = 3, colors = c("#B22234", "#003366", "green")) %>%
+  dyAxis("y", valueRange = c(-2,7)) %>%
   dyLegend(show= "always",  width  = 300, labelsSeparateLines = TRUE) %>%
   dyShading(from= "1990-07-01", to=" 1991-03-01", color = "#cecece")%>%
   dyShading(from= "2001-03-01", to="2001-11-01", color = "#cecece") %>%
@@ -46,6 +48,28 @@ all_PCE<-dygraph(dt, xlab= "Date", ylab = "Percent Change from Year Ago") %>%
 all_PCE
 saveWidget(all_PCE, "pce_dy.html")
 
+#Static PCE graph
+start_date = which(dt$date == '2012-01-01')
+staticdt <- dt[start_date:381, ] %>%
+  select(date, `Chain-type Price Index`, `Excluding Food and Energy`, `Trimmed Mean`) %>%
+  gather(key = "variable", value = "value", -date)
 
+PCE_static_graph= ggplot(staticdt, aes(x = date, y = value))+
+  geom_rect(xmin=as.Date("2020-02-01"), xmax=as.Date("2020-04-01"), ymin=-5, ymax=Inf, fill="#cecece", alpha=0.01)+
+  geom_path(aes(color = variable), size = 1.5)+
+  ylim(0,5)+
+  theme_bw()+
+  xlab("Date")+
+  ylab("Percent Change from a Year Ago")+
+  theme(legend.position = c(.3,.87),legend.text = element_text(size=12), legend.title=element_blank(),legend.background=element_rect(fill = alpha("white", 0)))+
+  scale_color_manual(values=c("#B22234", "#003366", "#398F1D"))
+  
 
+PCE_static_graph
+ggsave("PCE_static_graph.png",
+         plot = PCE_static_graph,
+         device = "png",
+         width = 10,
+         height = 10,
+         units= "in")
 

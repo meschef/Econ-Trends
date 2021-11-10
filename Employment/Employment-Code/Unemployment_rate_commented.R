@@ -45,7 +45,7 @@ graphTwo<- dygraph(NSCUR, ylab = "Unemployment Rate (%)", xlab = "Date") %>%
 graphTwo
 
 # Save as an html widget.
-saveWidget(graphTwo, "dygraph unemployment rate.html")
+saveWidget(graphTwo, "unemployment-rate.html")
 
 # Reimport data beginning in 2005 for static graph, only keep date and value columns, merge data frames and name columns.
 national_unemp_begin2005<-fredr(series_id= "UNRATE", observation_start = as.Date("2005-01-01"))
