@@ -20,6 +20,8 @@ MICH_dt<-as.xts.data.table(as.data.table(MICH[,c(1,3)]))
 
 avg<-mean(MICH_dt$value) %>% round(digits=2)
 
+end_date = Sys.Date() + 1095
+
 mich_dy<-dygraph(MICH_dt, xlab= "Date", ylab = "Percent") %>%
   dySeries(label = "Inflation Expectation") %>%
   dyOptions(fillAlpha= 0.8, strokeWidth = 3 ,colors = "#003366") %>%
@@ -29,7 +31,7 @@ mich_dy<-dygraph(MICH_dt, xlab= "Date", ylab = "Percent") %>%
   dyShading(from= "2001-03-01", to="2001-11-01", color = "#cecece") %>%
   dyShading(from = "2007-12-01", to="2009-06-01", color = "#cecece") %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
-  dyRangeSelector(dateWindow = c(as.Date("1990-01-01"), as.Date("2025-01-01"))) 
+  dyRangeSelector(dateWindow = c(as.Date("1990-01-01"), as.Date(end_date))) 
 mich_dy
 
 saveWidget(mich_dy, "mich_dy.html")
