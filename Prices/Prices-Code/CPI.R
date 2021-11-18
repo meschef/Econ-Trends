@@ -33,6 +33,9 @@ staticdt <- dt %>%
   select(date, `CPI All Items`, `Excluding Food and Energy`) %>%
   gather(key = "variable", value = "value", -date)
 
+# Setting end date
+end_date = Sys.Date() + 365
+
 CPI_static_graph= ggplot(staticdt, aes(x = date, y = value))+
   geom_rect(xmin=as.Date("1990-07-01"), xmax=as.Date("1991-03-01"), ymin=-5, ymax=Inf, fill="#cecece", alpha=0.01)+
   geom_rect(xmin=as.Date("2001-03-01"), xmax=as.Date("2001-11-01"), ymin=-5, ymax=Inf, fill="#cecece", alpha=0.01)+
@@ -40,6 +43,7 @@ CPI_static_graph= ggplot(staticdt, aes(x = date, y = value))+
   geom_rect(xmin=as.Date("2020-02-01"), xmax=as.Date("2020-04-01"), ymin=-5, ymax=Inf, fill="#cecece", alpha=0.01)+
   geom_path(aes(color = variable), size = .9)+
   ylim(-3,8)+
+  xlim(as.Date("1990-01-01"),as.Date(end_date))+
   theme_bw()+
   labs(x ="Date", y = "Percent Change from a Year Ago", title = "Figure 1: Consumer Price Index Inflation",
        caption = "Consumer price index data from U.S. Bureau of Labor Statistics.\n All data retrieved from FRED. (https://fred.stlouisfed.org/)")+
@@ -54,4 +58,9 @@ ggsave("CPI_static_graph.png",
        width = 12,
        height = 10,
        units= "in")
+
+
+
+
+
 
