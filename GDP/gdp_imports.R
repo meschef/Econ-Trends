@@ -29,6 +29,8 @@ colnames(import_data)<- c("positive", "negative")
 
 avg<-mean(import_dt$value) %>% round(digits=2)
 
+end_date = Sys.Date() + 1095
+
 gdp_imports<-dygraph(import_data,  xlab= "Date", ylab = "Percentage Points of GDP at Annual Rate") %>%
   dySeries("positive", color= "#003366") %>% 
   dySeries("negative", color = "#B22234") %>%
@@ -39,7 +41,7 @@ gdp_imports<-dygraph(import_data,  xlab= "Date", ylab = "Percentage Points of GD
   dyShading(from= "2001-03-01", to="2001-11-01", color = "#cecece") %>%
   dyShading(from = "2007-12-01", to="2009-06-01", color = "#cecece") %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
-  dyRangeSelector(dateWindow = c(as.Date("1990-01-01"), as.Date("2025-01-01"))) %>%
+  dyRangeSelector(dateWindow = c(as.Date("1990-01-01"), as.Date(end_date))) %>%
   dyBarChart()
 gdp_imports
 saveWidget(gdp_imports, "gdp_imports_dy.html")

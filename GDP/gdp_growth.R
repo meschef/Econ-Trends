@@ -27,6 +27,7 @@ avg<-mean(GDP_change$value)%>% round(digits=2)
 
 final<-merge(positive_data, negative_data)
 
+end_date = Sys.Date() + 1095
 
 GDP_change_dynamic<-dygraph(final, xlab= "Date", ylab = "Annualized Rate of Change from Previous Quarter") %>%
   dySeries("value", color= "#003366") %>% 
@@ -38,7 +39,7 @@ GDP_change_dynamic<-dygraph(final, xlab= "Date", ylab = "Annualized Rate of Chan
   dyShading(from= "2001-03-01", to="2001-11-01", color = "#cecece") %>%
   dyShading(from = "2007-12-01", to="2009-06-01", color = "#cecece") %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
-  dyRangeSelector(dateWindow = c(as.Date("1990-01-01"), as.Date("2024-01-01"))) %>%
+  dyRangeSelector(dateWindow = c(as.Date("1990-01-01"), as.Date(end_date))) %>%
   dyBarChart()
 GDP_change_dynamic
 saveWidget(GDP_change_dynamic, "gdp_growth_dy.html")
