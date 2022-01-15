@@ -31,7 +31,8 @@ mich_dy<-dygraph(MICH_dt, xlab= "Date", ylab = "Percent") %>%
   dyShading(from= "2001-03-01", to="2001-11-01", color = "#cecece") %>%
   dyShading(from = "2007-12-01", to="2009-06-01", color = "#cecece") %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
-  dyRangeSelector(dateWindow = c(as.Date("1990-01-01"), as.Date(end_date))) 
+  dyRangeSelector(dateWindow = c(as.Date("1990-01-01"), as.Date(end_date))) %>%
+  dyAxis("y", valueRange = c(0,7))
 mich_dy
 
 saveWidget(mich_dy, "mich_dy.html")

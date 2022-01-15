@@ -35,16 +35,17 @@ dt<-list( PCEPI_change, PCEPILFE_change, trimmed_mean_change) %>% reduce(left_jo
 
 
 #dy graph containing all three measures as different series
+end_date = Sys.Date() + 1095
 
 all_PCE<-dygraph(dt, xlab= "Date", ylab = "Percent Change from Year Ago") %>%
   dyOptions(strokeWidth = 3, colors = c("#B22234", "#003366", "green")) %>%
-  dyAxis("y", valueRange = c(-2,7)) %>%
+  dyAxis("y", valueRange = c(-2,8)) %>%
   dyLegend(show= "always",  width  = 300, labelsSeparateLines = TRUE) %>%
   dyShading(from= "1990-07-01", to=" 1991-03-01", color = "#cecece")%>%
   dyShading(from= "2001-03-01", to="2001-11-01", color = "#cecece") %>%
   dyShading(from = "2007-12-01", to="2009-06-01", color = "#cecece") %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
-  dyRangeSelector(dateWindow = c(as.Date("1990-01-01"), as.Date("2025-01-01")))
+  dyRangeSelector(dateWindow = c(as.Date("1990-01-01"), as.Date(end_date)))
 all_PCE
 saveWidget(all_PCE, "pce_dy.html")
 
@@ -62,7 +63,7 @@ PCE_static_graph= ggplot(staticdt, aes(x = date, y = value))+
   geom_path(aes(color = variable), size = .8)+
   ylim(-1.5,5)+
   theme_bw()+
-  labs(x ="Date", y = "Percent Change from a Year Ago", title = "Personal Consumption Expenditure Inflation",
+  labs(x ="Date", y = "Percent Change from a Year Ago", title = "Figure 1: Personal Consumption Expenditure Inflation",
        caption = "Price index data from U.S. Bureau of Economic Analysis.\nTrimmed mean data from Federal Reserve Bank of Dallas.\n All data retrieved from FRED (https://fred.stlouisfed.org/)")+
   theme(legend.position = c(.2,.87),legend.text = element_text(size=12), legend.title=element_blank(),legend.background=element_rect(fill = alpha("white", 0)))+
   scale_color_manual(values=c("#B22234", "#003366", "#398F1D"))

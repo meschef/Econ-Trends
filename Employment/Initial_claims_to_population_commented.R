@@ -69,11 +69,13 @@ nicscic<-xts(nicscic, order.by= nicscic$date)
 nicscic<-nicscic[,c(2,3)]
 
 
+end_date = Sys.Date() + 1095
+
 # dyGraph-- dynamic
 graphOneBar<-dygraph(nicscic, ylab = "Weekly Initial Claims (% of population)", xlab = "Date")  %>%
   dySeries("National", label= "National", color = "#B22234") %>%
   dySeries("SC", label= "South Carolina", color = "#003366") %>%
-  dyRangeSelector(dateWindow = c(as.Date("2020-02-01"), as.Date("2021-11-01"))) %>%
+  dyRangeSelector(dateWindow = c(as.Date("2020-02-01"), as.Date(end_date))) %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece")%>%
   dyOptions(fillAlpha= 0.8) %>%
   dyLegend(width = 150, labelsSeparateLines = TRUE) %>%

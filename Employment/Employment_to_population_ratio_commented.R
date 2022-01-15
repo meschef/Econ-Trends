@@ -21,11 +21,13 @@ emptopop<-data.table(empnational)
 colnames(emptopop)<- c("date", "National")
 emp_p<- as.xts.data.table(emptopop)
 
+end_date = Sys.Date() + 1095
+
 # dyGraph-- dynamic
 graphThree<-dygraph(emp_p, xlab = "Date", ylab = "Employment to Population Ratio") %>%
   dySeries(name= "National", color ="#B22234") %>%
   dyAxis("y", valueRange = c(50, 70)) %>%
-  dyRangeSelector(dateWindow = c(as.Date("1975-01-01"), as.Date("2025-01-01"))) %>%
+  dyRangeSelector(dateWindow = c(as.Date("1975-01-01"), as.Date(end_date))) %>%
   dyOptions(drawPoints = TRUE, strokeWidth = 3, rightGap = 20) %>%
   dyLegend(width = 100, labelsSeparateLines = TRUE) %>%
   dyShading(from= "1980-01-01", to="1980-07-01", color = "#cecece")%>%

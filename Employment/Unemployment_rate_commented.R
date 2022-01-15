@@ -27,6 +27,8 @@ colnames(NSCUR)<- c("date", "national unemprate", "south caroline unemprate")
 NSCUR<- xts(NSCUR, order.by = NSCUR$date)
 NSCUR<-NSCUR[,2:3]
 
+end_date = Sys.Date() + 1095
+
 # dyGraph-- dynamic
 graphTwo<- dygraph(NSCUR, ylab = "Unemployment Rate (%)", xlab = "Date") %>%
   dyAxis("y", valueRange = c(0, 20)) %>%
@@ -35,7 +37,7 @@ graphTwo<- dygraph(NSCUR, ylab = "Unemployment Rate (%)", xlab = "Date") %>%
   dyOptions(drawPoints = TRUE, strokeWidth = 3) %>%
   dyLegend(width = 150, labelsSeparateLines = TRUE) %>% 
   dyHighlight() %>%
-  dyRangeSelector(dateWindow = c(as.Date("1975-01-01"), as.Date("2025-01-01"))) %>%
+  dyRangeSelector(dateWindow = c(as.Date("1975-01-01"), as.Date(end_date))) %>%
   dyShading(from= "1980-01-01", to="1980-07-01", color = "#cecece")%>%
   dyShading(from= "1981-07-01", to="1982-11-01", color = "#cecece")%>%
   dyShading(from= "1990-07-01", to=" 1991-03-01", color = "#cecece")%>%

@@ -7,7 +7,7 @@ library(tidyverse)
 
 # set FRED API key
 API = Sys.getenv("API_key")
-fredr_set_key(API)
+fredr_set_key("aae3658b653ba18c15305b7b43fcdb08")
 
 
 
@@ -34,7 +34,8 @@ openings_and_unemployed<-
   geom_line(aes(color = variable), size=1) +
   scale_color_manual(values = c( "#003366", "#B22234")) +
   theme_bw() +
-  theme(text = element_text(size = 15), legend.position = c(.25, .9) ,legend.title=element_blank(),legend.background=element_rect(fill = alpha("white", 0))) 
+  theme(text = element_text(size = 15), legend.position = c(.2, .9) ,legend.title=element_blank(),legend.background=element_rect(fill = alpha("white", 0))) +
+  scale_x_date(limits = c(as.Date("2001-01-01"), as.Date("2022-01-01")))
 openings_and_unemployed
 
 ggsave("openings_unemployed_st.png",

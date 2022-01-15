@@ -37,12 +37,14 @@ q<-merge(SC, National, by="date")
 q<-q[, c(1,3,5)]
 colnames(q)<- c("date", "South Carolina", "National")
 
+end_date = Sys.Date() + 30
+
 # dyGraph-- dynamic
 graphFour<-dygraph(q, xlab = "Date", ylab = "Percent Change <br> from February 2020") %>%
   dySeries("National", label = "National", color = "#B22234" ) %>%
   dySeries("South Carolina", label="South Carolina", color = "#003366") %>%
   dyAxis("y", valueRange = c(-18, 3)) %>%
-  dyRangeSelector(dateWindow = c(as.Date("2020-02-01"), as.Date("2021-10-01"))) %>%
+  dyRangeSelector(dateWindow = c(as.Date("2020-02-01"), as.Date(end_date))) %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
   dyOptions(drawPoints = TRUE, strokeWidth = 3, rightGap = 10) %>%
   dyLegend(width = 150, labelsSeparateLines = TRUE) %>% 

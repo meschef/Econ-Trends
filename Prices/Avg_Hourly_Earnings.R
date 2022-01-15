@@ -21,6 +21,7 @@ earnings_dt<-as.data.table(CES0500000003[,c(1,3)])
 earnings_change<-earnings_dt[,"Average Hourly Earnings":=  (value/shift(value, n=12, fill = NA)-1)*100]
 earnings_change<-earnings_change[,c(1,3)]
 
+end_date = Sys.Date() + 365
 
 earnings_dy<-dygraph(earnings_change, xlab= "Date", ylab = "Percent Change from Year Ago") %>%
   dySeries(label = "Average Hourly Earnings") %>%
@@ -30,7 +31,7 @@ earnings_dy<-dygraph(earnings_change, xlab= "Date", ylab = "Percent Change from 
   dyShading(from= "2001-03-01", to="2001-11-01", color = "#cecece") %>%
   dyShading(from = "2007-12-01", to="2009-06-01", color = "#cecece") %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
-  dyRangeSelector(dateWindow = c(as.Date("2006-01-01"), as.Date("2024-01-01"))) 
+  dyRangeSelector(dateWindow = c(as.Date("2006-01-01"), as.Date(end_date))) 
 earnings_dy
 
 saveWidget(earnings_dy, "earnings_dy.html")
@@ -53,6 +54,6 @@ both_earnings_dy<-dygraph(final, xlab= "Date", ylab = "Percent Change from Year 
   dyShading(from= "2001-03-01", to="2001-11-01", color = "#cecece") %>%
   dyShading(from = "2007-12-01", to="2009-06-01", color = "#cecece") %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
-  dyRangeSelector(dateWindow = c(as.Date("2006-01-01"), as.Date("2024-01-01"))) 
+  dyRangeSelector(dateWindow = c(as.Date("2006-01-01"), as.Date(end_date))) 
 both_earnings_dy
 saveWidget(both_earnings_dy, "both_earnings_dy.html")
