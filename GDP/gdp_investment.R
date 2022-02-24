@@ -43,6 +43,7 @@ gdp_investment<-dygraph(investment_data, xlab= "Date", ylab = "Percentage Points
   dyShading(from = "2007-12-01", to="2009-06-01", color = "#cecece") %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
   dyRangeSelector(dateWindow = c(as.Date("1990-01-01"), as.Date(end_date))) %>%
+  dyAxis("y", valueRange=c(-12,16))%>%
   dyBarChart()
 gdp_investment
  saveWidget(gdp_investment, "gdp_investment_dy.html")

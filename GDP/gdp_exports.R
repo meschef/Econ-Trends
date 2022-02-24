@@ -42,6 +42,7 @@ gdp_exports<-dygraph(export_data, xlab= "Date", ylab = "Percentage Points of GDP
   dyShading(from = "2007-12-01", to="2009-06-01", color = "#cecece") %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
   dyRangeSelector(dateWindow = c(as.Date("1990-01-01"), as.Date(end_date))) %>%
+  dyAxis("y", valueRange=c(-10,8)) %>%
   dyBarChart()
 gdp_exports
 saveWidget(gdp_exports, "gdp_exports_dy.html")

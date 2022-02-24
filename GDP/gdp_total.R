@@ -28,6 +28,7 @@ gdp_total<-dygraph(gdp_total_dt, xlab= "Date", ylab = "Billions of Chained 2012 
   dyShading(from = "2007-12-01", to="2009-06-01", color = "#cecece") %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
   dyRangeSelector(dateWindow = c(as.Date("1990-01-01"), as.Date(end_date))) %>%
+  dyAxis("y", valueRange=c(8000,22000))%>%
   dyBarChart()
 gdp_total
 saveWidget(gdp_total, "gdp_total_dy.html")
