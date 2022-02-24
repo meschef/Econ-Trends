@@ -11,8 +11,8 @@ library(tidyr)
 # https://www.census.gov/foreign-trade/statistics/historical/index.html
 
 # import data
-ex_real <- read_excel("data/realexp.xls", col_names = FALSE, skip = 7)
-im_real <- read_excel("data/realimp.xls", col_names = FALSE, skip = 7)
+ex_real <- read_excel("data/realexp.xlsx", col_names = FALSE, skip = 7)
+im_real <- read_excel("data/realimp.xlsx", col_names = FALSE, skip = 7)
 
 # label columns
 colnames(ex_real) <- c("date", "total exports")
@@ -58,10 +58,11 @@ dygraph_trade <- dygraph(trade, ylab = "Billions of 2012 Dollars", xlab = "Date"
   dyOptions(drawPoints = TRUE, strokeWidth = 3, rightGap = TRUE) %>%
   dyLegend(width = 150, labelsSeparateLines = TRUE) %>%
   dyAxis("x", drawGrid = FALSE) %>%
-  dyAxis("y", valueRange = c(70,300)) %>%
+  dyAxis("y", valueRange = c(70,330)) %>%
   dyHighlight() %>%
   dyShading(from = "2007-12-01", to="2009-06-01", color = "#cecece") %>%
-  dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") 
+  dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
+  dyRangeSelector(dateWindow = c(as.Date("2005-01-01"), as.Date("2022-04-01")))
 dygraph_trade
 saveWidget(dygraph_trade, "real-trade.html")
 

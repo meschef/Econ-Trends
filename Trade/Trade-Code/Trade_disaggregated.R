@@ -29,6 +29,8 @@ trade$Date <- as.Date(trade$Date, format = "%Y-%m-%d")
 trade$`Export Value` <- trade$`Export Value`/1000000000
 trade$`Import Value` <- trade$`Import Value`/1000000000
 
+end_date = "2022-04-01"
+
 # GRAPHS
 
 # World Total
@@ -44,7 +46,8 @@ dygraph_world <- dygraph(tradeWorld, xlab = "Date", ylab = "Billions of US Dolla
   dyAxis("x", drawGrid = FALSE) %>%
   dyHighlight() %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
-  dyAxis("y", valueRange = c(70,300))
+  dyAxis("y", valueRange = c(70,320)) %>%
+  dyRangeSelector(dateWindow = c(as.Date("2010-01-01"), as.Date(end_date)))
 dygraph_world
 saveWidget(dygraph_world, "world-trade.html")
 
@@ -72,7 +75,8 @@ dygraph_MX <- dygraph(tradeMX, xlab = "Date", ylab = "Billions of US Dollars") %
   dyHighlight() %>%
   dyAxis("x", drawGrid = FALSE) %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
-  dyAxis("y", valueRange = c(8, 40))
+  dyAxis("y", valueRange = c(8, 45)) %>%
+  dyRangeSelector(dateWindow = c(as.Date("2010-01-01"), as.Date(end_date)))
 dygraph_MX
 saveWidget(dygraph_MX, "mexico-trade.html")
 
@@ -99,7 +103,8 @@ dygraph_CA <- dygraph(tradeCA, xlab = "Date", ylab = "Billions of US Dollars") %
   dyHighlight() %>%
   dyAxis("x", drawGrid = FALSE) %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
-  dyAxis("y", valueRange = c(12, 38))
+  dyAxis("y", valueRange = c(12, 40)) %>%
+  dyRangeSelector(dateWindow = c(as.Date("2010-01-01"), as.Date(end_date)))
 dygraph_CA
 saveWidget(dygraph_CA, "canada-trade.html")
 
@@ -132,7 +137,8 @@ dygraph_NAFTA <- dygraph(tradeNAFTA, xlab = "Date", ylab = "Billions of US Dolla
   dyHighlight() %>%
   dyAxis("x", drawGrid = FALSE) %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
-  dyAxis("y", valueRange = c(20, 80))
+  dyAxis("y", valueRange = c(20, 85)) %>%
+  dyRangeSelector(dateWindow = c(as.Date("2010-01-01"), as.Date(end_date)))
 dygraph_NAFTA
 saveWidget(dygraph_NAFTA, "nafta-trade.html")
 
@@ -158,7 +164,8 @@ dygraph_CH <- dygraph(tradeCH, xlab = "Date", ylab = "Billions of US Dollars") %
   dyHighlight() %>%
   dyAxis("x", drawGrid = FALSE) %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
-  dyAxis("y", valueRange = c(0, 65))
+  dyAxis("y", valueRange = c(0, 65)) %>%
+  dyRangeSelector(dateWindow = c(as.Date("2010-01-01"), as.Date(end_date)))
 dygraph_CH
 saveWidget(dygraph_CH, "china-trade.html")
 
@@ -185,7 +192,8 @@ dygraph_EU <- dygraph(tradeEU, xlab = "Date", ylab = "Billions of US Dollars") %
   dyHighlight() %>%
   dyAxis("x", drawGrid = FALSE) %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
-  dyAxis("y", valueRange = c(15, 75))
+  dyAxis("y", valueRange = c(15, 75)) %>%
+  dyRangeSelector(dateWindow = c(as.Date("2010-01-01"), as.Date(end_date)))
 dygraph_EU
 saveWidget(dygraph_EU, "europe-trade.html")
 
@@ -212,7 +220,8 @@ dygraph_JP <- dygraph(tradeJP, xlab = "Date", ylab = "Billions of US Dollars") %
   dyHighlight() %>%
   dyAxis("x", drawGrid = FALSE) %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
-  dyAxis("y", valueRange = c(3, 16))
+  dyAxis("y", valueRange = c(3, 16)) %>%
+  dyRangeSelector(dateWindow = c(as.Date("2010-01-01"), as.Date(end_date)))
 dygraph_JP
 saveWidget(dygraph_JP, "japan-trade.html")
 
@@ -249,6 +258,7 @@ graph_growth <- dygraph(tradeWorld, ylab = "YoY Growth Rate", xlab = "Date")  %>
   dyAxis("x",rangePad = 20, pixelsPerLabel = 64) %>%
   dyLegend(width = 150, labelsSeparateLines = TRUE) %>%
   dyBarChart() %>%
-  dyAxis("y", valueRange = c(0.8, 1.8))
+  dyAxis("y", valueRange = c(0.8, 1.8)) %>%
+  dyRangeSelector(dateWindow = c(as.Date("2020-12-15"), as.Date("2021-12-15")))
 graph_growth
 saveWidget(graph_growth, "growth-rates.html")
