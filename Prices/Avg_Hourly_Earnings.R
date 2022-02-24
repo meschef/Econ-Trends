@@ -31,7 +31,7 @@ earnings_dy<-dygraph(earnings_change, xlab= "Date", ylab = "Percent Change from 
   dyShading(from= "2001-03-01", to="2001-11-01", color = "#cecece") %>%
   dyShading(from = "2007-12-01", to="2009-06-01", color = "#cecece") %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
-  dyRangeSelector(dateWindow = c(as.Date("2006-01-01"), as.Date(end_date))) 
+  dyRangeSelector(dateWindow = c(as.Date("2007-01-01"), as.Date(end_date))) 
 earnings_dy
 
 saveWidget(earnings_dy, "earnings_dy.html")
