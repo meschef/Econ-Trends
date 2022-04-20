@@ -43,7 +43,7 @@ CPI_static_graph= ggplot(staticdt, aes(x = date, y = value))+
   geom_rect(xmin=as.Date("2020-02-01"), xmax=as.Date("2020-04-01"), ymin=-5, ymax=Inf, fill="#cecece", alpha=0.01)+
   geom_path(aes(color = variable), size = .9)+
   ylim(-3,8)+
-  xlim(as.Date("1990-01-01"),as.Date(end_date))+
+  xlim(as.Date("1990-06-01"),as.Date(end_date))+
   theme_bw()+
   labs(x ="Date", y = "Percent Change from a Year Ago", title = "Figure 1: Consumer Price Index Inflation",
        caption = "Consumer price index data from U.S. Bureau of Labor Statistics.\n All data retrieved from FRED. (https://fred.stlouisfed.org/)")+
