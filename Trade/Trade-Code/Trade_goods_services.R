@@ -16,38 +16,41 @@ colnames(trade_gs) <- c("date", "total balance", "goods balance",
                         "services balance", "total exports", "goods exports", 
                         "services exports", "total imports", "goods imports", 
                         "services imports")
-trade_gs <- trade_gs[-c(13,14,27,28,43:45),]
+trade_gs <- trade_gs[-c(1,14,15,16,29,30,33:47),]
 
 
 # inputting revised figures -- this will change every release
-trade_gs[35,2:10] <- trade_gs[38,2:10]
-trade_gs <- trade_gs[-c(37:38),]
+#  trade_gs[35,2:10] <- trade_gs[38,2:10]
+#  trade_gs <- trade_gs[-c(37:38),]
 
 # scale dollars: millions -> billions
 trade_gs[,2:10] <- trade_gs[,2:10]/1000
 
 ### date formatting ###
 # inserting years
-date <- c(rep("2019", 12), rep("2020", 12), rep("2021", 12))
-date <- cbind(trade_gs[1:36,1],date)
+date <- c(rep("2020", 12), rep("2021", 12), rep("2022",2))
+date <- cbind(trade_gs[1:26,1],date)
 colnames(date) <- c("month", "year")
 trade_gs <- cbind(date, trade_gs[,2:10])
 
+
 # recode months (will need to account for revised month(s) different names)
-trade_gs$month <- recode(trade_gs$month, "January"="01", "January (R)"= "01", "February"="02", "February (R)"= "01", "March"="03", "March (R)"= "03", "April"="04", "April (R)"="04","May"="05","May (R)"= "05", "June"="06", "June (R)"= "06","July"="07", "July (R)"= "07","August"="08", "August (R)"="08","September"="09", "September (R)" ="09", "October"="10", "October (R)"="10", "November"="11","November (R)"="11", "December"="12")
+trade_gs$month <- recode(trade_gs$month, "January"="01", "January (R)"= "01", "February"="02", "February (R)"= "01", "March"="03", "March (R)"= "03", "April"="04", "April (R)"="04","May"="05","May (R)"= "05", "June"="06", "June (R)"= "06","July"="07", "July (R)"= "07","August"="08", "August (R)"="08","September"="09", "September (R)" ="09", "October"="10", "October (R)"="10", "November"="11","November (R)"="11", "December"="12", "December (R)"="12")
 
 # concatenate date
 date <- paste(trade_gs$year, trade_gs$month, "01", sep = "-")
-trade_gs <- cbind(date, trade_gs[,3:11])
+trade_gs <- cbind(date, trade_gs[,2:11])
 
+trade_gs<- trade_gs[,-c(2)]
 # convert factor -> POSIXt -> Date, merge into dataframe
 date <- strptime(trade_gs$date, format = "%Y-%m-%d")
 trade_gs$date <- as.Date(date, format = "%Y-%m-%d")
 
-# finally, cut out unreported months in year (this will change every release)
-trade_gs <- trade_gs[-c(36),]
 
-end_date = "2022-01-01"
+# finally, cut out unreported months in year (this will change every release)
+##trade_gs <- trade_gs[-c(36),]
+
+end_date = "2022-03-01"
 
 # graphs
 # goods imports/exports
@@ -62,8 +65,8 @@ dygraph_goods <- dygraph(goods, ylab = "Billions of US Dollars", xlab = "Date") 
   dyLegend(width = 150, labelsSeparateLines = TRUE) %>%
   dyHighlight() %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
-  dyAxis("y", valueRange = c(75, 320)) %>%
-  dyRangeSelector(dateWindow = c(as.Date("2019-01-01"), as.Date(end_date)))
+  dyAxis("y", valueRange = c(75, 335)) %>%
+  dyRangeSelector(dateWindow = c(as.Date("2019-12-01"), as.Date(end_date)))
 dygraph_goods
 saveWidget(dygraph_goods, "goods-trade.html")
 
@@ -89,7 +92,7 @@ dygraph_services <- dygraph(services, ylab = "Billions of US Dollars", xlab = "D
   dyHighlight() %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
   dyAxis("y", valueRange = c(25, 90)) %>%
-  dyRangeSelector(dateWindow = c(as.Date("2019-01-01"), as.Date(end_date)))
+  dyRangeSelector(dateWindow = c(as.Date("2019-12-01"), as.Date(end_date)))
 dygraph_services
 saveWidget(dygraph_services, "services-trade.html")
 
@@ -114,8 +117,8 @@ dygraph_gs <- dygraph(gs, ylab = "Billions of US Dollars", xlab = "Date") %>%
   dyLegend(width = 150, labelsSeparateLines = TRUE) %>%
   dyHighlight() %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
-  dyAxis("y", valueRange = c(130, 370)) %>%
-  dyRangeSelector(dateWindow = c(as.Date("2019-01-01"), as.Date(end_date)))
+  dyAxis("y", valueRange = c(130, 380)) %>%
+  dyRangeSelector(dateWindow = c(as.Date("2019-12-01"), as.Date(end_date)))
 dygraph_gs
 saveWidget(dygraph_gs, "total-trade.html")
 
@@ -139,8 +142,8 @@ dygraph_tb <- dygraph(tb, ylab = "Billions of US Dollars", xlab = "Date") %>%
   dyLegend(width = 150, labelsSeparateLines = TRUE) %>%
   dyHighlight() %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>% 
-  dyAxis("y", valueRange = c(-35, -95)) %>%
-  dyRangeSelector(dateWindow = c(as.Date("2019-01-01"), as.Date(end_date)))
+  dyAxis("y", valueRange = c(-35, -105)) %>%
+  dyRangeSelector(dateWindow = c(as.Date("2019-12-01"), as.Date(end_date)))
 dygraph_tb
 saveWidget(dygraph_tb, "trade-balance.html")
 

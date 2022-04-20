@@ -35,7 +35,7 @@ trade_real$date <- recode(trade_real$date, "January"="01","February"="02","March
 # insert years
 date <- c(rep("2005",12), rep("2006",12), rep("2007",12), rep("2008",12), rep("2009",12), rep("2010",12), rep("2011",12),
           rep("2012",12), rep("2013",12), rep("2014",12), rep("2015",12), rep("2016",12), rep("2017",12), rep("2018",12),
-          rep("2019",12), rep("2020",12), rep("2021",12))
+          rep("2019",12), rep("2020",12), rep("2021",12), rep("2022",5))
 trade_real$date <- paste(date, trade_real$date, "01", sep = "-")
 
 # convert factor -> POSIXt -> Date, merge into dataframe
@@ -62,7 +62,7 @@ dygraph_trade <- dygraph(trade, ylab = "Billions of 2012 Dollars", xlab = "Date"
   dyHighlight() %>%
   dyShading(from = "2007-12-01", to="2009-06-01", color = "#cecece") %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece") %>%
-  dyRangeSelector(dateWindow = c(as.Date("2005-01-01"), as.Date("2022-04-01")))
+  dyRangeSelector(dateWindow = c(as.Date("2005-01-01"), as.Date("2022-05-01")))
 dygraph_trade
 saveWidget(dygraph_trade, "real-trade.html")
 
