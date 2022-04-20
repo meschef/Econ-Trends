@@ -30,7 +30,7 @@ plot_SC_Abbeville_Unrate<- ggplot(dt_abbeville, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
     scale_color_manual(values=c("#B22234", "#003366"))
 
 plot_SC_Abbeville_Unrate
@@ -54,7 +54,7 @@ plot_SC_Aiken_Unrate<- ggplot(dt_aiken, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Aiken_Unrate
 
@@ -78,7 +78,7 @@ plot_SC_Allendale_Unrate<- ggplot(dt_allendale, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Allendale_Unrate
 
@@ -102,7 +102,7 @@ plot_SC_Anderson_Unrate<- ggplot(dt_anderson, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Anderson_Unrate
 
@@ -126,7 +126,7 @@ plot_SC_Bamberg_Unrate<-ggplot(dt_bamberg, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Bamberg_Unrate
 
@@ -150,7 +150,7 @@ plot_SC_Barnwell_Unrate<- ggplot(dt_barnwell, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Barnwell_Unrate
 
@@ -174,7 +174,7 @@ plot_SC_Beaufort_Unrate<- ggplot(dt_beaufort, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Beaufort_Unrate
 
@@ -198,7 +198,7 @@ plot_SC_Berkeley_Unrate<- ggplot(dt_berkeley, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Berkeley_Unrate
 
@@ -223,7 +223,7 @@ plot_SC_Calhoun_Unrate<- ggplot(dt_calhoun, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Calhoun_Unrate
 
@@ -247,7 +247,7 @@ plot_SC_Charleston_Unrate<- ggplot(dt_charleston, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Charleston_Unrate
 
@@ -271,7 +271,7 @@ plot_SC_Cherokee_Unrate<- ggplot(dt_cherokee, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Cherokee_Unrate
 
@@ -296,7 +296,7 @@ plot_SC_Chester_Unrate<- ggplot(dt_chester, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Chester_Unrate
 
@@ -320,7 +320,7 @@ plot_SC_Chesterfield_Unrate<- ggplot(dt_chesterfield, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Chesterfield_Unrate
 
@@ -344,7 +344,7 @@ plot_SC_Clarendon_Unrate<- ggplot(dt_clarendon, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Clarendon_Unrate
 
@@ -368,7 +368,7 @@ plot_SC_Colleton_Unrate<- ggplot(dt_colleton, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Colleton_Unrate
 
@@ -392,7 +392,7 @@ plot_SC_Darlington_Unrate<- ggplot(dt_darlington, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Darlington_Unrate
 
@@ -416,7 +416,7 @@ plot_SC_Dillon_Unrate<-ggplot(dt_dillon, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Dillon_Unrate
 
@@ -440,7 +440,7 @@ plot_SC_Dorchester_Unrate<- ggplot(dt_dorchester, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Dorchester_Unrate
 
@@ -464,7 +464,7 @@ plot_SC_Edgefield_Unrate<- ggplot(dt_edgefield, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Edgefield_Unrate
 
@@ -488,7 +488,7 @@ plot_SC_Fairfield_Unrate<- ggplot(dt_fairfield, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Fairfield_Unrate
 
@@ -512,7 +512,7 @@ plot_SC_Florence_Unrate<- ggplot(dt_florence, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Florence_Unrate
 
@@ -536,7 +536,7 @@ plot_SC_Georgetown_Unrate<- ggplot(dt_georgetown, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Georgetown_Unrate
 
@@ -560,7 +560,7 @@ plot_SC_Greenville_Unrate<- ggplot(dt_greenville, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Greenville_Unrate
 
@@ -584,7 +584,7 @@ plot_SC_Greenwood_Unrate<- ggplot(dt_greenwood, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Greenwood_Unrate
 #SAVE
@@ -608,7 +608,7 @@ plot_SC_Hampton_Unrate<- ggplot(dt_hampton, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Hampton_Unrate
 
@@ -632,7 +632,7 @@ plot_SC_Horry_Unrate<- ggplot(dt_horry, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Horry_Unrate
 
@@ -656,7 +656,7 @@ plot_SC_Jasper_Unrate<- ggplot(dt_jasper, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Jasper_Unrate
 
@@ -681,7 +681,7 @@ plot_SC_Kershaw_Unrate<- ggplot(dt_kershaw, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Kershaw_Unrate
 
@@ -704,7 +704,7 @@ plot_SC_Lancaster_Unrate<- ggplot(dt_lancaster, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Lancaster_Unrate
 
@@ -728,7 +728,7 @@ plot_SC_Laurens_Unrate<- ggplot(dt_laurens, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Laurens_Unrate
 
@@ -751,7 +751,7 @@ plot_SC_Lee_Unrate<- ggplot(dt_lee, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Lee_Unrate
 
@@ -774,7 +774,7 @@ plot_SC_Lexington_Unrate<- ggplot(dt_lexington, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Lexington_Unrate
 
@@ -797,7 +797,7 @@ plot_SC_Marion_Unrate<- ggplot(dt_marion, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Marion_Unrate
 
@@ -820,7 +820,7 @@ plot_SC_Marlboro_Unrate<- ggplot(dt_marlboro, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Marlboro_Unrate
 
@@ -843,7 +843,7 @@ plot_SC_McCormick_Unrate<- ggplot(dt_mcCormick, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_McCormick_Unrate
 
@@ -867,7 +867,7 @@ plot_SC_Newberry_Unrate<- ggplot(dt_newberry, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Newberry_Unrate
 
@@ -892,7 +892,7 @@ plot_SC_Oconee_Unrate<- ggplot(dt_oconee, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Oconee_Unrate
 
@@ -916,7 +916,7 @@ plot_SC_Orangeburg_Unrate<- ggplot(dt_orangeburg, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Orangeburg_Unrate
 
@@ -939,7 +939,7 @@ plot_SC_Pickens_Unrate<- ggplot(dt_pickens, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Pickens_Unrate
 
@@ -963,7 +963,7 @@ plot_SC_Richland_Unrate<- ggplot(dt_richland, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Richland_Unrate
 
@@ -987,7 +987,7 @@ plot_SC_Saluda_Unrate<- ggplot(dt_saluda, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#B22234", "#003366"))
 plot_SC_Saluda_Unrate
 
@@ -1010,7 +1010,7 @@ plot_SC_Spartanburg_Unrate<- ggplot(dt_spartanburg, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#003366", "#B22234"))
 plot_SC_Spartanburg_Unrate
 
@@ -1034,7 +1034,7 @@ plot_SC_Sumter_Unrate<- ggplot(dt_sumter, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#003366", "#B22234"))
 plot_SC_Sumter_Unrate
 
@@ -1057,7 +1057,7 @@ plot_SC_Union_Unrate<- ggplot(dt_union, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#003366", "#B22234"))
 plot_SC_Union_Unrate
 
@@ -1080,7 +1080,7 @@ plot_SC_Williamsburg_Unrate<- ggplot(dt_williamsburg, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#003366", "#B22234"))
 plot_SC_Williamsburg_Unrate
 
@@ -1103,7 +1103,7 @@ plot_SC_York_Unrate<- ggplot(dt_york, aes(x=date, y=value)) +
   scale_y_continuous(labels = scales::label_percent(scale = 1,suffix ="%"),limits = c(0.5,21)) + 
   theme_bw()+
   theme(axis.text.x = element_text(angle = 60, hjust = 1), 
-        legend.text=element_text(size=14), legend.position=c(.1,.1), legend.title=element_blank())+
+        legend.text=element_text(size=14), legend.position=c(.15,.1), legend.title=element_blank())+
   scale_color_manual(values=c("#003366", "#B22234"))
 plot_SC_York_Unrate
 

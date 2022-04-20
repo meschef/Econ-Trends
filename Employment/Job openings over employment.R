@@ -12,8 +12,8 @@ library(readxl)
 API = Sys.getenv("API_key")
 fredr_set_key(API)
 
-#National Job Openings Data
-job_openings_US <- read_excel("/Users/meghanscheffey/OneDrive - Clemson University/Econ_Trends/Econ-Trends/Data/JOLTS/Job_openings_US_adjusted_1.xlsx", skip=12)
+#National Job Openings Data 
+job_openings_US <- read_excel("/Users/meghanscheffey/OneDrive - Clemson University/Econ_Trends/Econ-Trends/Data/JOLTS/Job_openings_US.xlsx", skip=12)
 job_openings_US <- data.frame(job_openings_US)
 colnames(job_openings_US) = c("Series", "Year", "Month", "Job Openings")
 job_openings_US$Month <- recode(job_openings_US$Month, "M01" = "01", "M02"="02", "M03"="03", "M04"="04", "M05"="05", "M06"="06", "M07"="07", "M08" = "08", "M09"="09", "M10"="10", "M11"="11", "M12"="12")
@@ -21,7 +21,7 @@ job_openings_US$Date <- paste(job_openings_US$Year, job_openings_US$Month, "01",
 job_openings_US = subset(job_openings_US, select = -c(Series, Year, Month))
 job_openings_US$Date = as.Date(job_openings_US$Date)
 
-#National Unemployment Level
+#National Unemployment Level 
 unemployment_US<- fredr(series_id = "UNEMPLOY", observation_start = as.Date("2000-12-01"))
 unemployment_US <- unemployment_US[,c(1,3)]
 colnames(unemployment_US)<-c("Date","Unemployment")
@@ -33,7 +33,7 @@ dt$US_Value = dt$`Job Openings`/dt$Unemployment
 dt <- dt[,c(2,4)]
 
 #South Carolina Openings Data
-job_openings_SC <- read_excel("/Users/meghanscheffey/OneDrive - Clemson University/Econ_Trends/Econ-Trends/Data/JOLTS/Job_openings_SC_1.xlsx", skip=12)
+job_openings_SC <- read_excel("/Users/meghanscheffey/OneDrive - Clemson University/Econ_Trends/Econ-Trends/Data/JOLTS/Job_openings_SC.xlsx", skip=12)
 job_openings_SC <- data.frame(job_openings_SC)
 colnames(job_openings_SC) = c("Series", "Year", "Month", "Job Openings")
 job_openings_SC$Month <- recode(job_openings_SC$Month, "M01" = "01", "M02"="02", "M03"="03", "M04"="04", "M05"="05", "M06"="06", "M07"="07", "M08" = "08", "M09"="09", "M10"="10", "M11"="11", "M12"="12")
@@ -42,7 +42,7 @@ job_openings_SC = subset(job_openings_SC, select = -c(Series, Year, Month))
 job_openings_SC$Date = as.Date(job_openings_SC$Date)
 
 #South Carolina Unemployment Monthly Data
-unemployment_SC <-read_excel("/Users/meghanscheffey/OneDrive - Clemson University/Econ_Trends/Econ-Trends/Data/JOLTS/SC_unemployment_1.xlsx", skip = 10)
+unemployment_SC <-read_excel("/Users/meghanscheffey/OneDrive - Clemson University/Econ_Trends/Econ-Trends/Data/JOLTS/SC_unemployment.xlsx", skip = 10)
 unemployment_SC <- unemployment_SC[,-c(1)]
 unemployment_SC$Period <- recode(unemployment_SC$Period, "M01" = "01", "M02"="02", "M03"="03", "M04"="04", "M05"="05", "M06"="06", "M07"="07", "M08" = "08", "M09"="09", "M10"="10", "M11"="11", "M12"="12")
 unemployment_SC$Date <- paste(unemployment_SC$Year, unemployment_SC$Period, "01", sep = "-")
@@ -56,8 +56,8 @@ SC = left_join(x=job_openings_SC, y=unemployment_SC, by="Date")
 SC$SC_Value = SC$`Job Openings`/SC$unemployment
 SC <- SC[,c(2,4)]
 
-#South job openings
-south_openings<-read_excel("/Users/meghanscheffey/OneDrive - Clemson University/Econ_Trends/Econ-Trends/Data/JOLTS/South_job_openings_1.xlsx", skip=12)
+#South job openings 
+south_openings<-read_excel("/Users/meghanscheffey/OneDrive - Clemson University/Econ_Trends/Econ-Trends/Data/JOLTS/South_openings.xlsx", skip=12)
 colnames(south_openings) = c("Series", "Year", "Month", "Job Openings")
 south_openings$Month <- recode(south_openings$Month, "M01" = "01", "M02"="02", "M03"="03", "M04"="04", "M05"="05", "M06"="06", "M07"="07", "M08" = "08", "M09"="09", "M10"="10", "M11"="11", "M12"="12")
 south_openings$Date <- paste(south_openings$Year, south_openings$Month, "01", sep = "-")
@@ -65,7 +65,7 @@ south_openings = subset(south_openings, select = -c(Series, Year, Month))
 south_openings$Date = as.Date(south_openings$Date)
 
 #South unemployment level
-south_unemployment = read_excel("/Users/meghanscheffey/OneDrive - Clemson University/Econ_Trends/Econ-Trends/Data/JOLTS/South_unemployment_1.xlsx", skip=10)
+south_unemployment = read_excel("/Users/meghanscheffey/OneDrive - Clemson University/Econ_Trends/Econ-Trends/Data/JOLTS/South_unemployment.xlsx", skip=10)
 south_unemployment$Period <- recode(south_unemployment$Period,"M01" = "01", "M02"="02", "M03"="03", "M04"="04", "M05"="05", "M06"="06", "M07"="07", "M08" = "08", "M09"="09", "M10"="10", "M11"="11", "M12"="12")
 south_unemployment$Date <- paste(south_unemployment$Year, south_unemployment$Period, "01", sep = "-")
 south_unemployment<- south_unemployment[,c(4,5)]
@@ -89,11 +89,11 @@ openings_over_unemployed <- dygraph(dynamic_dt, ylab="Ratio, seasonally adjusted
   dyOptions(drawPoints = TRUE, strokeWidth = 3) %>%
   dyLegend(width = 150, labelsSeparateLines = TRUE) %>% 
   dyHighlight() %>%
-  dyRangeSelector(dateWindow = c(as.Date("2000-11-01"), as.Date("2022-05-01"))) %>%
+  dyRangeSelector(dateWindow = c(as.Date("2000-11-01"), as.Date("2022-10-01"))) %>%
   dyShading(from= "2001-03-01", to="2001-11-01", color = "#cecece") %>%
   dyShading(from = "2007-12-01", to="2009-06-01", color = "#cecece") %>%
   dyShading(from = "2020-02-01", to= "2020-04-01" ,color = "#cecece")%>%
-  dyAxis("y", valueRange=c(0,2.5))
+  dyAxis("y", valueRange=c(0,3))
 
 openings_over_unemployed
 

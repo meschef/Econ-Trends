@@ -9,7 +9,7 @@ library(xts)
 
 # set FRED API key
 API = Sys.getenv("API_key")
-fredr_set_key("aae3658b653ba18c15305b7b43fcdb08")
+fredr_set_key(API)
 
 
 # Import National Unemployment Rate data from FRED, only keep date and value columns. Import South Carolina Unemployment Rate data from FRED, only keep date and value columns.
